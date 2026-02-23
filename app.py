@@ -15,7 +15,7 @@ if not os.path.exists(DOCUMENTS_PATH):
 	st.error(f"Missing documents file: {DOCUMENTS_PATH}")
 	st.stop()
 
-embeddings = np.load(EMBEDDINGS_PATH)
+embeddings = np.load(EMBEDDINGS_PATH, allow_pickle=True)
 with open(DOCUMENTS_PATH, "r", encoding="utf-8") as f:
 	documents = [line.strip() for line in f.readlines()]
 
@@ -48,4 +48,5 @@ if st.button("Search"):
 
 		st.write("### Top 10 Relevant Documents:")
 		for doc, score in results:
+
 			st.write(f"- **{doc}** (Score: {score:.4f})")
