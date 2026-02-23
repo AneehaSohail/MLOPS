@@ -1,0 +1,4 @@
+import numpy as np
+
+embeddings = np.random.rand(5, 50)
+np.save("embeddings.npy", embeddings)
